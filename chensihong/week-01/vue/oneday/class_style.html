@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id=app>
+			<!-- 动态绑定 class -->
+			<div v-bind:class="{isActive: red}"
+			style="height:200px; width:200px; color: black;">
+				div 1
+			</div>
+			<!-- 动态绑定 class 配置多个class， 
+			可以使用数据格式[isActive,isGreen]再对其赋值
+			可以使用三元运算符控制数组个数-->
+			<div v-bind:class="{isActive: red, isGreen: green}"
+			style="height:200px; width:200px; text-align: center; line-height: 200px;">
+				div 2
+			</div>
+			<!-- 可以使用三元运算符动态控制数组 -->
+			<div v-bind:class="[red ? 'isActive' : '',green ? 'isGreen': '']"
+			style="height:200px; width:200px; text-align: center; line-height: 200px;">
+				div 3
+			</div>
+			<!-- 动态样式 -->
+			<div :style="{height: h, width: w, fontSize:size, background:red, textAlign: ta, lineHeight:lh}">
+				div4
+			</div>
+		</div>
+		<script type="application/javascript">
+			var vm = new Vue({
+				el:'#app',
+				data:{
+					red:true,
+					green:true,
+					h:'300px',
+					w:'300px',
+					ta:'center',
+					size:'30px',
+					red:'red',
+					lh:'300px',
+				}
+			})
+		</script>
+	</body>
+	<style>
+		.isActive{
+			background: #FF0000;
+		}
+		.isGreen{
+			color:green;
+			font-size:50px
+		}
+	</style>
+</html>

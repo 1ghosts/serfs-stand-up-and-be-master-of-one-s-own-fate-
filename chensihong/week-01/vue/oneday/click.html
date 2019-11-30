@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id=app>
+			{{message}}
+			<button v-on:click="message = 'change message'">click it</button>
+		</div>
+		
+		<script type="application/javascript">
+			var obj ={message: 'orignal message'},
+			// 使变量数据不在追踪其变更，渲染
+			Object.freeze(obj)
+			
+			var app = new Vue({
+				el: '#app',
+				data: obj
+			})
+		</script>
+	</body>
+</html>

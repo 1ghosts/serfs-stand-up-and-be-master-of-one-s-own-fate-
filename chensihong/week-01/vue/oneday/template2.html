@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id=app>
+			<!-- 判断p标签是否显示 -->
+			<p v-if="seen">look me</p>
+			<!-- 绑定链接地址 -->
+			<a v-bind:href="url">look me</a>
+			<div @click="click1">
+				<!-- stop是vue固有语法，当点击此处后处理完不向父级传递 -->
+				<div @click.stop="click2">
+					click me
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="application/javascript">
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				seen:false,
+				url:'https://cn.vuejs.org/v2/guide/syntax.html'
+			},
+			methods:{
+				click1: function(e){
+					console.log('click1')
+				},
+				click2: function(e){
+					console.log('click2')
+				}
+			}
+		})
+	</script>
+</html>

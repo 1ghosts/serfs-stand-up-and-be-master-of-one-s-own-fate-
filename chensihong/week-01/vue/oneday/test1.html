@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app">
+		  <p>{{ message }}</p>
+		</div>
+		<script type="application/javascript">
+			// 只能声明一个Vue实例
+			var app = new Vue({
+				el: '#app',
+				// 想要完成响应，message必须放在el声明的容器中
+				data:{
+					message:"hello word!!"
+				}
+			})
+			// var 1app = new Vue({
+			// 	el: '#app1',
+			// 	data:{
+			// 		message1:"hello word!!"
+			// 	}
+			// })
+		</script>
+	</body>
+</html>

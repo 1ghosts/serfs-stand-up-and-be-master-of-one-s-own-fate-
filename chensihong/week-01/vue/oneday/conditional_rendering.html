@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id=app>
+			<!-- 注意：放在v-else 后面会不生效 -->
+			<div v-show="ok">
+				show time
+			</div>
+			<!-- v-if v-else-if v-else 条件控制 -->
+			<div v-if="value==='A'">
+				A
+			</div>
+			<div v-else-if="value==='B'">
+				B
+			</div>
+			<div v-else-if="value==='C'">
+				C
+			</div>
+			<div v-else>
+				NOT A/B/C
+			</div>
+		</div>
+		<script type="application/javascript">
+			var vm = new Vue({
+				el: '#app',
+				data:{
+					value:'B',
+					ok:false
+				}
+			})
+		</script>
+	</body>
+</html>

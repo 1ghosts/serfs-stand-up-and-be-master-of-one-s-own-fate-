@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="application/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id=app>
+			<!-- v-once 只在初始化时赋值，之后的修改都不会生效 -->
+			<span v-once>这个将不会改变: {{ msg }}</span>
+			<p>Using mustaches: {{ rawHtml }}</p>
+			<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+			<div v-bind:id="dynamicId">Click the button to change the color</div>
+			<button v-on:click="changeColor">changeColor</button>
+			<!-- 插值， 直接使用表达式 -->
+			<p>{{count + 1}}</p>
+			<!-- 非0非空字符串非false则为true -->
+			<p>{{ok ? 'Yes': 'No'}}</p>
+			<!-- 以单个字符切割，倒序，合并 -->
+			<p>{{ message.split('').reverse().join('') }}</p>
+		</div>
+
+		<script type="application/javascript">
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					msg:"hi vue",
+					rawHtml:'<span style="color:red">this red color</span>',
+					dynamicId:"red",
+					count:1,
+					ok: 1==2,
+					message:'vue'
+					},
+				methods:{
+					changeColor: function(e){
+						 console.log(e)
+						vm.$data.dynamicId='blue'
+					}
+				}
+			})
+			vm.$data.msg="change"
+			
+			 
+		</script>
+	</body>
+	<style>
+		#red{
+			color:red;
+		}
+		#blue{
+			color:blue;
+		}
+	</style>
+</html>
